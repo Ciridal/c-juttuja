@@ -7,6 +7,7 @@ int main()
 {
 	contactManager contactM;
 
+	for (int i = 0; i < 3; i++)
 	contactM.addContact();
 	
 	//contactM.tulostaTiedot();
@@ -18,6 +19,17 @@ int main()
 	std::map<std::string, Contact*> contactMap = contactM.makemap();
 
 	std::map<std::string, Contact*>::iterator it=contactMap.find(name);
+
+	if (it != contactMap.end()) 
+	{
+		Contact* contact = (*it).second;
+		contact->tulosta();
+	}
+
+	else
+	{
+		std::cout << "Ei ole";
+	}
 
 	return 0;
 }
